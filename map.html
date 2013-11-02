@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+	<link rel="stylesheet" href="/css/L.Control.MousePosition.css" />
+  <!--[if lte IE 8]>
+      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+  <![endif]-->
+	<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+	<script src="/js/L.Control.MousePosition.js"></script>
+	
+	
+	        <!--[if lte IE 8]><link rel="stylesheet" href="libs/leaflet.ie.css" /><![endif]-->
+	        <link rel="stylesheet" href="/css/leaflet.draw.css" />
+	        <!--[if lte IE 8]><link rel="stylesheet" href="../dist/leaflet.draw.ie.css" /><![endif]-->
+
+	        <script src="/js/Leaflet.draw/Leaflet.draw.js"></script>
+
+	        <script src="/js/Leaflet.draw/edit/handler/Edit.Poly.js"></script>
+	        <script src="/js/Leaflet.draw/edit/handler/Edit.SimpleShape.js"></script>
+	        <script src="/js/Leaflet.draw/edit/handler/Edit.Circle.js"></script>
+	        <script src="/js/Leaflet.draw/edit/handler/Edit.Rectangle.js"></script>
+
+	        <script src="/js/Leaflet.draw/draw/handler/Draw.Feature.js"></script>
+	        <script src="/js/Leaflet.draw/draw/handler/Draw.Polyline.js"></script>
+	        <script src="/js/Leaflet.draw/draw/handler/Draw.Polygon.js"></script>
+	        <script src="/js/Leaflet.draw/draw/handler/Draw.SimpleShape.js"></script>
+	        <script src="/js/Leaflet.draw/draw/handler/Draw.Rectangle.js"></script>
+	        <script src="/js/Leaflet.draw/draw/handler/Draw.Circle.js"></script>
+	        <script src="/js/Leaflet.draw/draw/handler/Draw.Marker.js"></script>
+
+	        <script src="/js/Leaflet.draw/ext/LatLngUtil.js"></script>
+	        <script src="/js/Leaflet.draw/ext/GeometryUtil.js"></script>
+	        <script src="/js/Leaflet.draw/ext/LineUtil.Intersect.js"></script>
+	        <script src="/js/Leaflet.draw/ext/Polyline.Intersect.js"></script>
+	        <script src="/js/Leaflet.draw/ext/Polygon.Intersect.js"></script>
+
+	        <script src="/js/Leaflet.draw/Control.Draw.js"></script>
+	        <script src="/js/Leaflet.draw/Tooltip.js"></script>
+	        <script src="/js/Leaflet.draw/Toolbar.js"></script>
+
+	        <script src="/js/Leaflet.draw/draw/DrawToolbar.js"></script>
+	        <script src="/js/Leaflet.draw/edit/EditToolbar.js"></script>
+	        <script src="/js/Leaflet.draw/edit/handler/EditToolbar.Edit.js"></script>
+	        <script src="/js/Leaflet.draw/edit/handler/EditToolbar.Delete.js"></script>
+</head>
+
+<body>
+	<div id="map" style="height:600px;"></div>
+	
+	<script>
+		var latlng = new L.LatLng(32.5977, -85.4808);
+		var map = L.map('map').setView(latlng, 13);
+			
+		L.tileLayer('http://{s}.tile.cloudmade.com/42d89a292e284a7eb4f4e3beed8d1b25/997/256/{z}/{x}/{y}.png', {
+		    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+		    maxZoom: 18
+		}).addTo(map);
+		
+		var circle = L.circle([32.5977, -85.4808], 500, {
+		    color: 'red',
+		    fillColor: '#f03',
+		    fillOpacity: 0.5
+		}).addTo(map);
+		L.control.mousePosition().addTo(map);
+
+		// Initialize the FeatureGroup to store editable layers
+		var drawnItems = new L.FeatureGroup();
+		map.addLayer(drawnItems);
+
+		// Initialize the draw control and pass it the FeatureGroup of editable layers
+		var drawControl = new L.Control.Draw({
+		    edit: {
+		        featureGroup: drawnItems
+		    }
+		});
+		map.addControl(drawControl);
+
+		map.on('draw:created', function (e) {
+                        var type = e.layerType,
+                                layer = e.layer;
+
+                        if (type === 'marker') {
+                                layer.bindPopup('A popup!');
+                        }
+
+                        drawnItems.addLayer(layer);
+                });
+	</script>
+	
+</body>
+</html>
