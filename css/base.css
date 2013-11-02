@@ -1,0 +1,46 @@
+
+
+body{
+	background-image:url('/img/brushed_alum2.jpg');
+	background-repeat:repeat;
+}
+
+
+.main {
+	margin-right: auto;
+	margin-left: auto;
+	width: 80%;
+	margin-top: 100px;
+	background-color: #f8f8f8;
+	height:100%;
+}
+
+.header-left {
+	float: left;
+}
+
+.header-right {
+	float: right;
+}
+
+.modern-region {
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	/*box-shadow: 0 0 5px #6D7074;
+	-moz-box-shadow: 0 0 5px #6D7074;
+	-webkit-box-shadow: 0 0 5px #6D7074;*/
+	box-shadow: 0 0px 0 5px rgba(0,0,0,.1), 0px 1px 1px rgba(0,0,0,.35);
+	-moz-box-shadow: 0 0px 0 5px rgba(0,0,0,.1), 0px 1px 1px rgba(0,0,0,.35);
+	-webkit-box-shadow: 0 0px 0 5px rgba(0,0,0,.1), 0px 1px 1px rgba(0,0,0,.35);
+	
+}
+
+.modern-region h1, h2, h3, h4, h5, h6 {
+	color: #6D7074;
+}
+
+.modern-region p {
+	color: #414141;
+}
+
