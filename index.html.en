@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+       <meta charset="utf-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+ <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+ <!--[if lte IE 8]>
+     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+ <![endif]-->
+       <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+</head>
+
+<body>
+       <div id="map" style="height:760px;"></div>
+       
+       <script>
+       var latlng = new L.LatLng(32.6, -85.5);
+       var map = L.map('map').setView(latlng, 6);
+               
+       L.tileLayer('http://{s}.tile.cloudmade.com/42d89a292e284a7eb4f4e3beed8d1b25/997/256/{z}/{x}/{y}.png', {
+           attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+           maxZoom: 15
+       }).addTo(map);
+
+       var marker = L.marker([32.6, -85.5]).addTo(map);
+
+       marker.bindPopup("War damn.").openPopup();
+
+       var marker1 = L.marker([32.7, -85.6]).addTo(map);
+       marker1.bindPopup("Robert is awesome.").openPopup();
+
+
+
+
+
+       </script>
+       
+</body>
+</html>
