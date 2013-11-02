@@ -29,6 +29,26 @@
        var marker1 = L.marker([32.7, -85.6]).addTo(map);
        marker1.bindPopup("Robert is awesome.").openPopup();
 
+       var NewOrleans = L.marker([30, -90]).addTo(map);
+       var Houston = L.marker([29.8, -95.4]).addTo(map);
+       var Atlanta = L.marker([33.8, -84.4]).addTo(map);
+       var Mobile = L.marker([30.7, -88]).addTo(map);
+       var Birmingham = L.marker([33.5, -86.8]).addTo(map);
+       var Orlando = L.marker([28.4, -81.3]).addTo(map);
+       var Miami = L.marker([25.8, -80.2]).addTo(map);
+       var Tampa = L.marker([27.9, -82.5]).addTo(map);
+       var KeyWest = L.marker([24.5, -81.8]).addTo(map);
+       var Biloxi = L.marker([30.4, -88.9]).addTo(map);
+       var Savannah = L.marker([32, -81]).addTo(map);
+       var Charleston = L.marker([32.8, -79.9]).addTo(map);
+       var MyrtleBeach = L.marker([33.7, -78.9]).addTo(map);
+       var PanamaCityBeach = L.marker([30.2, -85.8]).addTo(map);
+       var Jacksonville = L.marker([30.3, -81.7]).addTo(map);
+       var BatonRouge = L.marker([30.5, -91.1]).addTo(map);
+       var CorpusChristi = L.marker([27.7, -97.4]).addTo(map);
+       var Lafayette = L.marker([30.2, -92]).addTo(map);
+       var Pensacola = L.marker([30.4, -87.2]).addTo(map);
+       var Tallahassee = L.marker([30.5, -84.3]).addTo(map);
 
 
 
