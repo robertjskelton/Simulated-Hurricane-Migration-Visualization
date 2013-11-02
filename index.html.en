@@ -36,7 +36,6 @@
 
     // cities moved from
     var Mobile = L.marker([30.7, -88]).addTo(map);
-    var Birmingham = L.marker([33.5, -86.8]).addTo(map);
     var Orlando = L.marker([28.4, -81.3]).addTo(map);
     var Miami = L.marker([25.8, -80.2]).addTo(map);
     var Tampa = L.marker([27.9, -82.5]).addTo(map);
@@ -63,35 +62,60 @@
     	fillColor: '#f03',
     	fillOpacity: 0.5
     }).addTo(map);
+
+    var Birmingham = L.circle([33.5, -86.8], 15000, {
+    	color: 'red',
+    	fillColor: '#f03',
+    	fillOpacity: 0.5
+    }).addTo(map);
+
     var Atlanta = L.circle([33.8, -84.4], 15000, {
     	color: 'red',
     	fillColor: '#f03',
     	fillOpacity: 0.5
     }).addTo(map);
+
     var Dallas = L.circle([32.8, -96.8], 15000, {
     	color: 'red',
     	fillColor: '#f03',
     	fillOpacity: 0.5
     }).addTo(map);
+
     var SanAntonio = L.circle([29.4, -98.5], 15000, {
     	color: 'red',
     	fillColor: '#f03',
     	fillOpacity: 0.5
     }).addTo(map);
+
     var Montgomery = L.circle([32.4, -86.3], 15000, {
     	color: 'red',
     	fillColor: '#f03',
     	fillOpacity: 0.5
     }).addTo(map);
+
     var LittleRock = L.circle([34.7, -92.3], 15000, {
     	color: 'red',
     	fillColor: '#f03',
     	fillOpacity: 0.5
     }).addTo(map);
 
+    var Nashville = L.circle([36.2, -86.8], 15000, {
+    	color: 'red',
+    	fillColor: '#f03',
+    	fillOpacity: 0.5
+    }).addTo(map);
 
+    var Chattanooga = L.circle([35, -85.3], 15000, {
+    	color: 'red',
+    	fillColor: '#f03',
+    	fillOpacity: 0.5
+    }).addTo(map);
 
-
+    var Hunstville = L.circle([34.7, -86.6], 15000, {
+    	color: 'red',
+    	fillColor: '#f03',
+    	fillOpacity: 0.5
+    }).addTo(map);
 
     </script>
 
