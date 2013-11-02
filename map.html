@@ -1,270 +1,67 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap-theme.min.css">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
-
-
-	<!-- <link rel="stylesheet" href="css/style.css"> -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+	<script src="/js/jquery/jquery-2.0.1.min.js"></script>
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/css/bootstrap-theme.min.css" />
+	<script src="/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
 	<link rel="stylesheet" href="/css/L.Control.MousePosition.css" />
   <!--[if lte IE 8]>
       <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
-      <![endif]-->
-      <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
-      <script src="/js/L.Control.MousePosition.js"></script>
+  <![endif]-->
+	<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+	<script src="/js/L.Control.MousePosition.js"></script>
+    <!--[if lte IE 8]><link rel="stylesheet" href="libs/leaflet.ie.css" /><![endif]-->
+    <link rel="stylesheet" href="/css/leaflet.draw.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="../dist/leaflet.draw.ie.css" /><![endif]-->
 
+    <script src="/js/Leaflet.draw/Leaflet.draw.js"></script>
 
-      <!--[if lte IE 8]><link rel="stylesheet" href="libs/leaflet.ie.css" /><![endif]-->
-      <link rel="stylesheet" href="/css/leaflet.draw.css" />
-      <!--[if lte IE 8]><link rel="stylesheet" href="../dist/leaflet.draw.ie.css" /><![endif]-->
+    <script src="/js/Leaflet.draw/edit/handler/Edit.Poly.js"></script>
+    <script src="/js/Leaflet.draw/edit/handler/Edit.SimpleShape.js"></script>
+    <script src="/js/Leaflet.draw/edit/handler/Edit.Circle.js"></script>
+    <script src="/js/Leaflet.draw/edit/handler/Edit.Rectangle.js"></script>
 
-      <script src="/js/Leaflet.draw/Leaflet.draw.js"></script>
+    <script src="/js/Leaflet.draw/draw/handler/Draw.Feature.js"></script>
+    <script src="/js/Leaflet.draw/draw/handler/Draw.Polyline.js"></script>
+    <script src="/js/Leaflet.draw/draw/handler/Draw.Polygon.js"></script>
+    <script src="/js/Leaflet.draw/draw/handler/Draw.SimpleShape.js"></script>
+    <script src="/js/Leaflet.draw/draw/handler/Draw.Rectangle.js"></script>
+    <script src="/js/Leaflet.draw/draw/handler/Draw.Circle.js"></script>
+    <script src="/js/Leaflet.draw/draw/handler/Draw.Marker.js"></script>
 
-      <script src="/js/Leaflet.draw/edit/handler/Edit.Poly.js"></script>
-      <script src="/js/Leaflet.draw/edit/handler/Edit.SimpleShape.js"></script>
-      <script src="/js/Leaflet.draw/edit/handler/Edit.Circle.js"></script>
-      <script src="/js/Leaflet.draw/edit/handler/Edit.Rectangle.js"></script>
+    <script src="/js/Leaflet.draw/ext/LatLngUtil.js"></script>
+    <script src="/js/Leaflet.draw/ext/GeometryUtil.js"></script>
+    <script src="/js/Leaflet.draw/ext/LineUtil.Intersect.js"></script>
+    <script src="/js/Leaflet.draw/ext/Polyline.Intersect.js"></script>
+    <script src="/js/Leaflet.draw/ext/Polygon.Intersect.js"></script>
 
-      <script src="/js/Leaflet.draw/draw/handler/Draw.Feature.js"></script>
-      <script src="/js/Leaflet.draw/draw/handler/Draw.Polyline.js"></script>
-      <script src="/js/Leaflet.draw/draw/handler/Draw.Polygon.js"></script>
-      <script src="/js/Leaflet.draw/draw/handler/Draw.SimpleShape.js"></script>
-      <script src="/js/Leaflet.draw/draw/handler/Draw.Rectangle.js"></script>
-      <script src="/js/Leaflet.draw/draw/handler/Draw.Circle.js"></script>
-      <script src="/js/Leaflet.draw/draw/handler/Draw.Marker.js"></script>
+    <script src="/js/Leaflet.draw/Control.Draw.js"></script>
+    <script src="/js/Leaflet.draw/Tooltip.js"></script>
+    <script src="/js/Leaflet.draw/Toolbar.js"></script>
 
-      <script src="/js/Leaflet.draw/ext/LatLngUtil.js"></script>
-      <script src="/js/Leaflet.draw/ext/GeometryUtil.js"></script>
-      <script src="/js/Leaflet.draw/ext/LineUtil.Intersect.js"></script>
-      <script src="/js/Leaflet.draw/ext/Polyline.Intersect.js"></script>
-      <script src="/js/Leaflet.draw/ext/Polygon.Intersect.js"></script>
+    <script src="/js/Leaflet.draw/draw/DrawToolbar.js"></script>
+    <script src="/js/Leaflet.draw/edit/EditToolbar.js"></script>
+    <script src="/js/Leaflet.draw/edit/handler/EditToolbar.Edit.js"></script>
+    <script src="/js/Leaflet.draw/edit/handler/EditToolbar.Delete.js"></script>
+</head>
 
-      <script src="/js/Leaflet.draw/Control.Draw.js"></script>
-      <script src="/js/Leaflet.draw/Tooltip.js"></script>
-      <script src="/js/Leaflet.draw/Toolbar.js"></script>
-
-      <script src="/js/Leaflet.draw/draw/DrawToolbar.js"></script>
-      <script src="/js/Leaflet.draw/edit/EditToolbar.js"></script>
-      <script src="/js/Leaflet.draw/edit/handler/EditToolbar.Edit.js"></script>
-      <script src="/js/Leaflet.draw/edit/handler/EditToolbar.Delete.js"></script>
-  </head>
-
-  <title>
-  	Simulated Hurricane Migration Visualization 
-  </title>
-
-  <body>
-  	   
-
-
-  	<h1 style="margin-bottom:0;">Simulated Hurricane Migration Visualization </h1></div>
-
-
-  	<div id="map" style="height:570px; width:70%;float:left;"></div>
-
-  	<script>
-  	var latlng = new L.LatLng(32.5977, -85.4808);
-  	var map = L.map('map').setView(latlng, 6);
-
-  	L.tileLayer('http://{s}.tile.cloudmade.com/42d89a292e284a7eb4f4e3beed8d1b25/997/256/{z}/{x}/{y}.png', {
-  		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-  		maxZoom: 18
-  	}).addTo(map);
-		// rjs points
-		// cities moved from
-		var Mobile = L.marker([30.7, -88]).addTo(map);
-		var Orlando = L.marker([28.4, -81.3]).addTo(map);
-		var Miami = L.marker([25.8, -80.2]).addTo(map);
-		var Tampa = L.marker([27.9, -82.5]).addTo(map);
-		var KeyWest = L.marker([24.5, -81.8]).addTo(map);
-		var Biloxi = L.marker([30.4, -88.9]).addTo(map);
-		var Savannah = L.marker([32, -81]).addTo(map);
-		var Charleston = L.marker([32.8, -79.9]).addTo(map);
-		var MyrtleBeach = L.marker([33.7, -78.9]).addTo(map);
-		var PanamaCityBeach = L.marker([30.2, -85.8]).addTo(map);
-		var Jacksonville = L.marker([30.3, -81.7]).addTo(map);
-		var BatonRouge = L.marker([30.5, -91.1]).addTo(map);
-		var CorpusChristi = L.marker([27.7, -97.4]).addTo(map);
-		var Lafayette = L.marker([30.2, -92]).addTo(map);
-		var Pensacola = L.marker([30.4, -87.2]).addTo(map);
-		var Tallahassee = L.marker([30.5, -84.3]).addTo(map);
-		var NewOrleans = L.marker([30, -90]).addTo(map);
-		var Houston = L.marker([29.8, -95.4]).addTo(map);
-
-
-
-    // cities moved to
-    var Auburn = L.circle([32.6, -85.5], 15000, {
-    	color: 'orange',
-    	fillColor: 'blue',
-    	fillOpacity: 0.5
-    }).addTo(map);
-    Auburn.bindPopup("Auburn Population<br>2000: 46,245 <br> 2012: 56,908");
-
-    var Birmingham = L.circle([33.5, -86.8], 15000, {
-    	color: 'green',
-    	fillColor: 'gold',
-    	fillOpacity: 0.5
-    }).addTo(map);
-
-    var Atlanta = L.circle([33.8, -84.4], 15000, {
-    	color: 'red',
-    	fillColor: 'black',
-    	fillOpacity: 0.5
-    }).addTo(map);
-
-    var Dallas = L.circle([32.8, -96.8], 15000, {
-    	color: 'white',
-    	fillColor: 'blue',
-    	fillOpacity: 0.5
-    }).addTo(map);
-
-    var SanAntonio = L.circle([29.4, -98.5], 15000, {
-    	color: 'black',
-    	fillColor: 'white',
-    	fillOpacity: 0.5
-    }).addTo(map);
-
-    var Montgomery = L.circle([32.4, -86.3], 15000, {
-    	color: 'red',
-    	fillColor: '#f03',
-    	fillOpacity: 0.5
-    }).addTo(map);
-
-    var LittleRock = L.circle([34.7, -92.3], 15000, {
-    	color: 'red',
-    	fillColor: 'white',
-    	fillOpacity: 0.5
-    }).addTo(map);
-
-    var Nashville = L.circle([36.2, -86.8], 15000, {
-    	color: 'black',
-    	fillColor: 'gold',
-    	fillOpacity: 0.5
-    }).addTo(map);
-
-    var Chattanooga = L.circle([35, -85.3], 15000, {
-    	color: 'gold',
-    	fillColor: 'navy',
-    	fillOpacity: 0.5
-    }).addTo(map);
-
-    var Hunstville = L.circle([34.7, -86.6], 15000, {
-    	color: 'red',
-    	fillColor: 'blue',
-    	fillOpacity: 0.5
-    }).addTo(map);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    L.control.mousePosition().addTo(map);
-
-		// Initialize the FeatureGroup to store editable layers
-		var drawnItems = new L.FeatureGroup();
-		map.addLayer(drawnItems);
-
-		// Initialize the draw control and pass it the FeatureGroup of editable layers
-		var drawControl = new L.Control.Draw({
-			edit: {
-				featureGroup: drawnItems
-			}
-		});
-		map.addControl(drawControl);
-
-		map.on('draw:created', function (e) {
-			var type = e.layerType,
-			layer = e.layer;
-
-			if (type === 'marker') {
-				layer.bindPopup('Alabama sucks.');
-			}
-
-			drawnItems.addLayer(layer);
-		});
-		</script>
-
-		<div style="float:left;padding-left: 10px;">
-			<div style="float:left;">
-			<div class="dropdown">
-
-				<p>Category at first point:  
-					<select name = "point1">
-						<option value=1>1</option>
-						<option value=2>2</option>
-						<option value=3>3</option>
-						<option value=4>4</option>
-						<option value=5>5</option>
-					</select></p>
-
-					<p>Category at second point:  
-						<select>
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
-						</select></p>
-
-						<p>Category at third point:  
-							<select>
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
-								<option>5</option>
-							</select></p>
-
-							<p>Category at fourth point:  
-								<select>
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-								</select></p>
-
-								<p>Category at final point:  
-									<select>
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-										<option>5</option>
-									</select><br>
-									<input type="submit" value="Submit" />
-
-								</p>
-							</div>
-						</div>
-
-
-					</body>
-					</html>
+<body>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12"><h1>hey</h1></div>
+		<div class="row">
+			<div id="map" class="col-md-9" style="height:600px;"></div>
+			<div class="col-md-3">Hey</div>
+		</div>
+	</div>
+	
+	
+	<script src="map.js"></script>
+	
+</body>
+</html>
