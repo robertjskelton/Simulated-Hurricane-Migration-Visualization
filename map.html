@@ -8,60 +8,82 @@
 	<link rel="stylesheet" href="/css/bootstrap-theme.min.css" />
 	<script src="/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
-	<link rel="stylesheet" href="/css/L.Control.MousePosition.css" />
+  <link rel="stylesheet" href="/css/L.Control.MousePosition.css" />
   <!--[if lte IE 8]>
       <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
-  <![endif]-->
-	<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
-	<script src="/js/L.Control.MousePosition.js"></script>
-    <!--[if lte IE 8]><link rel="stylesheet" href="libs/leaflet.ie.css" /><![endif]-->
-    <link rel="stylesheet" href="/css/leaflet.draw.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="../dist/leaflet.draw.ie.css" /><![endif]-->
+      <![endif]-->
+      <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+      <script src="/js/L.Control.MousePosition.js"></script>
+      <!--[if lte IE 8]><link rel="stylesheet" href="libs/leaflet.ie.css" /><![endif]-->
+      <link rel="stylesheet" href="/css/leaflet.draw.css" />
+      <!--[if lte IE 8]><link rel="stylesheet" href="../dist/leaflet.draw.ie.css" /><![endif]-->
 
-    <script src="/js/Leaflet.draw/Leaflet.draw.js"></script>
+      <script src="/js/Leaflet.draw/Leaflet.draw.js"></script>
 
-    <script src="/js/Leaflet.draw/edit/handler/Edit.Poly.js"></script>
-    <script src="/js/Leaflet.draw/edit/handler/Edit.SimpleShape.js"></script>
-    <script src="/js/Leaflet.draw/edit/handler/Edit.Circle.js"></script>
-    <script src="/js/Leaflet.draw/edit/handler/Edit.Rectangle.js"></script>
+      <script src="/js/Leaflet.draw/edit/handler/Edit.Poly.js"></script>
+      <script src="/js/Leaflet.draw/edit/handler/Edit.SimpleShape.js"></script>
+      <script src="/js/Leaflet.draw/edit/handler/Edit.Circle.js"></script>
+      <script src="/js/Leaflet.draw/edit/handler/Edit.Rectangle.js"></script>
 
-    <script src="/js/Leaflet.draw/draw/handler/Draw.Feature.js"></script>
-    <script src="/js/Leaflet.draw/draw/handler/Draw.Polyline.js"></script>
-    <script src="/js/Leaflet.draw/draw/handler/Draw.Polygon.js"></script>
-    <script src="/js/Leaflet.draw/draw/handler/Draw.SimpleShape.js"></script>
-    <script src="/js/Leaflet.draw/draw/handler/Draw.Rectangle.js"></script>
-    <script src="/js/Leaflet.draw/draw/handler/Draw.Circle.js"></script>
-    <script src="/js/Leaflet.draw/draw/handler/Draw.Marker.js"></script>
+      <script src="/js/Leaflet.draw/draw/handler/Draw.Feature.js"></script>
+      <script src="/js/Leaflet.draw/draw/handler/Draw.Polyline.js"></script>
+      <script src="/js/Leaflet.draw/draw/handler/Draw.Polygon.js"></script>
+      <script src="/js/Leaflet.draw/draw/handler/Draw.SimpleShape.js"></script>
+      <script src="/js/Leaflet.draw/draw/handler/Draw.Rectangle.js"></script>
+      <script src="/js/Leaflet.draw/draw/handler/Draw.Circle.js"></script>
+      <script src="/js/Leaflet.draw/draw/handler/Draw.Marker.js"></script>
 
-    <script src="/js/Leaflet.draw/ext/LatLngUtil.js"></script>
-    <script src="/js/Leaflet.draw/ext/GeometryUtil.js"></script>
-    <script src="/js/Leaflet.draw/ext/LineUtil.Intersect.js"></script>
-    <script src="/js/Leaflet.draw/ext/Polyline.Intersect.js"></script>
-    <script src="/js/Leaflet.draw/ext/Polygon.Intersect.js"></script>
+      <script src="/js/Leaflet.draw/ext/LatLngUtil.js"></script>
+      <script src="/js/Leaflet.draw/ext/GeometryUtil.js"></script>
+      <script src="/js/Leaflet.draw/ext/LineUtil.Intersect.js"></script>
+      <script src="/js/Leaflet.draw/ext/Polyline.Intersect.js"></script>
+      <script src="/js/Leaflet.draw/ext/Polygon.Intersect.js"></script>
 
-    <script src="/js/Leaflet.draw/Control.Draw.js"></script>
-    <script src="/js/Leaflet.draw/Tooltip.js"></script>
-    <script src="/js/Leaflet.draw/Toolbar.js"></script>
+      <script src="/js/Leaflet.draw/Control.Draw.js"></script>
+      <script src="/js/Leaflet.draw/Tooltip.js"></script>
+      <script src="/js/Leaflet.draw/Toolbar.js"></script>
 
-    <script src="/js/Leaflet.draw/draw/DrawToolbar.js"></script>
-    <script src="/js/Leaflet.draw/edit/EditToolbar.js"></script>
-    <script src="/js/Leaflet.draw/edit/handler/EditToolbar.Edit.js"></script>
-    <script src="/js/Leaflet.draw/edit/handler/EditToolbar.Delete.js"></script>
-</head>
+      <script src="/js/Leaflet.draw/draw/DrawToolbar.js"></script>
+      <script src="/js/Leaflet.draw/edit/EditToolbar.js"></script>
+      <script src="/js/Leaflet.draw/edit/handler/EditToolbar.Edit.js"></script>
+      <script src="/js/Leaflet.draw/edit/handler/EditToolbar.Delete.js"></script>
+  </head>
 
-<body>
-	
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12"><h1>hey</h1></div>
-		<div class="row">
-			<div id="map" class="col-md-9" style="height:600px;"></div>
-			<div class="col-md-3">Hey</div>
-		</div>
-	</div>
-	
-	
-	<script src="map.js"></script>
-	
+  <body>
+
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12"><h1>Simulated Hurricane Migration Visualization</h1></div>
+         <div class="row">
+             <div id="map" class="col-md-9" style="height:600px;"></div>
+             <div class="col-md-3">
+
+                <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                <div class="dropdown">
+                  <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                    Dropdown
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                    <li role="presentation" class="divider"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                </ul>
+            </div>
+
+
+            Drop dop lits
+            
+
+
+        </div>
+    </div>
+</div>
+
+
+<script src="map.js"></script>
+
 </body>
 </html>
