@@ -1,4 +1,3 @@
-
 ===========================================
 Simulated-Hurricane-Migration-Visualization
 ===========================================
@@ -11,8 +10,8 @@ Auburn University Linux Club
 -------------------------------------------
 
 Members:
-Robert Skelton
-Robert Horn
-Nathan Lyles
-Kevin Mueler
-Brad Bolan
+| Robert Skelton | 
+Robert Horn | 
+Nathan Lyles | 
+Kevin Mueler | 
+Brad Bolan | 
