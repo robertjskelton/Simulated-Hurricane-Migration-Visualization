@@ -10,8 +10,8 @@ Auburn University Linux Club
 -------------------------------------------
 
 Members:
-| Robert Skelton | 
+Robert Skelton | 
 Robert Horn | 
 Nathan Lyles | 
 Kevin Mueler | 
-Brad Bolan | 
+Brad Bolan 
