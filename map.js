@@ -1,3 +1,10 @@
+var cane_layer = null;
+
+var hurricane_icon = L.icon({
+    iconUrl: 'favicon.png',
+    iconSize: [50, 50]
+});
+
 function setupMap() { 
     var latlng = new L.LatLng(31.4, -88.7);
     var map = L.map('map').setView(latlng, 6);
@@ -34,6 +41,11 @@ function setupMap() {
     map.on('click', function(e) {
 
         //alert(e.latlng.lat);
+        if (cane_layer != null) {
+            map.removeLayer(cane_layer);
+        }
+        
+        cane_layer = L.marker(e.latlng, {icon: hurricane_icon}).addTo(map);
         addHurricaneCats(e.latlng);
 
     });
@@ -203,7 +215,6 @@ function addAuburn(sizeIn) {
     fillOpacity: 0.5
 }).addTo(map);
 }
-
 
 L.control.mousePosition().addTo(map);
 
