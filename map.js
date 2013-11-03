@@ -91,10 +91,8 @@ function setupMap() {
         fillOpacity: 0.5
     }).addTo(map);
 
-    map.on('click', function(e) {
+map.on('click', function(e) {
      map.remove(); 
-   //clearLayers();
-   //Hunstville.removeFrom(map);
 
    var latlng = new L.LatLng(31.4, -88.7);
    map = L.map('map').setView(latlng, 6);
@@ -102,9 +100,9 @@ function setupMap() {
    L.tileLayer('http://{s}.tile.cloudmade.com/42d89a292e284a7eb4f4e3beed8d1b25/997/256/{z}/{x}/{y}.png', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
     maxZoom: 18
-}).addTo(map);
+    }).addTo(map);
 
-   addHuntsville(500000);
+   addHuntsville(50000);
    addChattanooga(70000);
    addNashville(10000);
    addLittleRock(10000);
@@ -225,24 +223,10 @@ L.control.mousePosition().addTo(map);
 
                             //alert(layer.getLatLngs().length);
                             addHurricaneCats(layer.getLatLngs().length);
-
                         }
-
                         drawnItems.addLayer(layer);
                     });
 }
-
-
-
-/*function changeSize(city, size) {
-    city = L.circle([34.7, -86.6], size, {
-        color: 'red',
-        fillColor: 'blue',
-        fillOpacity: 0.5
-    }).addTo(map);
-}
-
-changeSize(Hunstville, 10000);*/
 
 function addHurricaneCats(lengthIn) {
     var newHtml = '';
@@ -268,7 +252,8 @@ function addHurricaneCats(lengthIn) {
         + '</p>';
         
     }
-    newHtml += '<button type="submit" class="btn btn-primary">Submit</button>';
+    newHtml += '<button type="submit" class="btn btn-primary">Submit</button> '  // submit button
+            + '<FORM><INPUT TYPE="button" class="btn btn-primary" onClick="window.location.reload()" VALUE="Refresh"></FORM>'; // refresh button
     $('#hurricane-categories').html(newHtml);
 
 }
