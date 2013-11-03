@@ -322,6 +322,6 @@ function doWork() {
         alert("Please enter an integer value for radius.");
         return -1;
     }
-    window.location.href = '/map2.html';
+    window.location.href = './map2.html';
 }
 
