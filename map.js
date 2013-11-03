@@ -1,5 +1,5 @@
 function setupMap() { 
-    var latlng = new L.LatLng(30.3, -87.4808);
+    var latlng = new L.LatLng(31.4, -88.7);
     var map = L.map('map').setView(latlng, 6);
 
     L.tileLayer('http://{s}.tile.cloudmade.com/42d89a292e284a7eb4f4e3beed8d1b25/997/256/{z}/{x}/{y}.png', {
@@ -96,7 +96,7 @@ function setupMap() {
    //clearLayers();
    //Hunstville.removeFrom(map);
 
-   var latlng = new L.LatLng(30.3, -87.4808);
+   var latlng = new L.LatLng(31.4, -88.7);
    map = L.map('map').setView(latlng, 6);
 
    L.tileLayer('http://{s}.tile.cloudmade.com/42d89a292e284a7eb4f4e3beed8d1b25/997/256/{z}/{x}/{y}.png', {
@@ -104,7 +104,7 @@ function setupMap() {
     maxZoom: 18
 }).addTo(map);
 
-   addHuntsville(50000);
+   addHuntsville(500000);
    addChattanooga(70000);
    addNashville(10000);
    addLittleRock(10000);
