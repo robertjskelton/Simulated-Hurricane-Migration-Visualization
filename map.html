@@ -47,6 +47,7 @@
       <script src="/js/Leaflet.draw/edit/EditToolbar.js"></script>
       <script src="/js/Leaflet.draw/edit/handler/EditToolbar.Edit.js"></script>
       <script src="/js/Leaflet.draw/edit/handler/EditToolbar.Delete.js"></script>
+      <script src="map.js"></script>
   </head>
 
   <body>
@@ -55,124 +56,28 @@
 
     <div class="container">
       <div class="row">
-         <div class="col-md-12"><h1>Simulated Hurricane Migration Visualization</h1></div>
-         <div class="row">
-             <div id="map" class="col-md-9" style="height:600px;"></div>
-             <div class="col-md-3">
-                <p>Position 1:
-                <div class="btn-group" data-toggle="buttons">
-                  <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option1"> 1
-                </label>
-                <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option2"> 2
-                </label>
-                <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option3"> 3
-                </label>
-                <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option1"> 4
-                </label>
-                <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option1"> 5
-                </label>
-            </div>
-        </p>
+       <div class="col-md-12"><h1>Simulated Hurricane Migration Visualization</h1></div>
 
-        <p>Position 2:
-           <div class="btn-group" data-toggle="buttons">
-                  <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option1"> 1
-                </label>
-                <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option2"> 2
-                </label>
-                <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option3"> 3
-                </label>
-                <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option1"> 4
-                </label>
-                <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option1"> 5
-                </label>
-            </div>
-        </p>
-
-        <p>Position 3:
-                <div class="btn-group" data-toggle="buttons">
-                  <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option1"> 1
-                </label>
-                <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option2"> 2
-                </label>
-                <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option3"> 3
-                </label>
-                <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option1"> 4
-                </label>
-                <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option1"> 5
-                </label>
-            </div>
-        </p>
-
-        <p>Position 4:
-                <div class="btn-group" data-toggle="buttons">
-                  <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option1"> 1
-                </label>
-                <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option2"> 2
-                </label>
-                <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option3"> 3
-                </label>
-                <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option1"> 4
-                </label>
-                <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option1"> 5
-                </label>
-            </div>
-        </p>
-
-        <p>Position 5:
-                <div class="btn-group" data-toggle="buttons">
-                  <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option1"> 1
-                </label>
-                <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option2"> 2
-                </label>
-                <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option3"> 3
-                </label>
-                <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option1"> 4
-                </label>
-                <label class="btn btn-warning">
-                    <input type="radio" name="options" id="option1"> 5
-                </label>
-            </div>
-        </p>
-        <br>
-        <button type="submit" class="btn btn-primary">Submit</button>
-
-
-
-
-        </div>
-
-
-    </div>
+       <ul class="nav nav-pills">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="http://robertjskelton.com">Robert Skelton</a></li>
+          <li><a href="http://www.linkedin.com/pub/robert-horn/5b/282/978">Robert Horn</a></li>
+          <li><a href="http://robertjskelton.com">Nathan Lyles</a></li>
+          <li><a href="http://facebook.com/brad.bolan.7">Brad Bolan</a></li>
+          <li><a href="http://robertjskelton.com">Kevin Mueler</a></li>
+      </ul>
+      <br>
+      <div class="row">
+       <div id="map" class="col-md-9" style="height:600px;"></div>
+       <div id="hurricane-categories" class="col-md-3"></div>
+   </div>
 </div>
 </div>
 
+<script>
+setupMap();
+</script>
 
-<script src="map.js"></script>
 
 </body>
 </html>

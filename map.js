@@ -1,12 +1,13 @@
-var latlng = new L.LatLng(30.3, -87.4808);
-		var map = L.map('map').setView(latlng, 6);
-			
-		L.tileLayer('http://{s}.tile.cloudmade.com/42d89a292e284a7eb4f4e3beed8d1b25/997/256/{z}/{x}/{y}.png', {
-		    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-		    maxZoom: 18
-		}).addTo(map);
-		// rjs points
-		// cities moved from
+function setupMap() { 
+    var latlng = new L.LatLng(30.3, -87.4808);
+    var map = L.map('map').setView(latlng, 6);
+    			
+    L.tileLayer('http://{s}.tile.cloudmade.com/42d89a292e284a7eb4f4e3beed8d1b25/997/256/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+        maxZoom: 18
+    }).addTo(map);
+    // rjs points
+    // cities moved from
     var Mobile = L.marker([30.7, -88]).addTo(map);
     var Orlando = L.marker([28.4, -81.3]).addTo(map);
     var Miami = L.marker([25.8, -80.2]).addTo(map);
@@ -30,94 +31,128 @@ var latlng = new L.LatLng(30.3, -87.4808);
 
     // cities moved to
     var Auburn = L.circle([32.6, -85.5], 15000, {
-    	color: 'orange',
-    	fillColor: 'blue',
-    	fillOpacity: 0.5
+        color: 'orange',
+        fillColor: 'blue',
+        fillOpacity: 0.5
     }).addTo(map);
     Auburn.bindPopup("Auburn Population<br>2000: 46,245 <br> 2012: 56,908");
 
     var Birmingham = L.circle([33.5, -86.8], 15000, {
-    	color: 'green',
-    	fillColor: 'gold',
-    	fillOpacity: 0.5
+        color: 'green',
+        fillColor: 'gold',
+        fillOpacity: 0.5
     }).addTo(map);
 
     var Atlanta = L.circle([33.8, -84.4], 15000, {
-    	color: 'red',
-    	fillColor: 'black',
-    	fillOpacity: 0.5
+        color: 'red',
+        fillColor: 'black',
+        fillOpacity: 0.5
     }).addTo(map);
 
     var Dallas = L.circle([32.8, -96.8], 15000, {
-    	color: 'white',
-    	fillColor: 'blue',
-    	fillOpacity: 0.5
+        color: 'white',
+        fillColor: 'blue',
+        fillOpacity: 0.5
     }).addTo(map);
 
     var SanAntonio = L.circle([29.4, -98.5], 15000, {
-    	color: 'black',
-    	fillColor: 'white',
-    	fillOpacity: 0.5
+        color: 'black',
+        fillColor: 'white',
+        fillOpacity: 0.5
     }).addTo(map);
 
     var Montgomery = L.circle([32.4, -86.3], 15000, {
-    	color: 'red',
-    	fillColor: '#f03',
-    	fillOpacity: 0.5
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5
     }).addTo(map);
 
     var LittleRock = L.circle([34.7, -92.3], 15000, {
-    	color: 'red',
-    	fillColor: 'white',
-    	fillOpacity: 0.5
+        color: 'red',
+        fillColor: 'white',
+        fillOpacity: 0.5
     }).addTo(map);
 
     var Nashville = L.circle([36.2, -86.8], 15000, {
-    	color: 'black',
-    	fillColor: 'gold',
-    	fillOpacity: 0.5
+        color: 'black',
+        fillColor: 'gold',
+        fillOpacity: 0.5
     }).addTo(map);
 
     var Chattanooga = L.circle([35, -85.3], 15000, {
-    	color: 'gold',
-    	fillColor: 'navy',
-    	fillOpacity: 0.5
+        color: 'gold',
+        fillColor: 'navy',
+        fillOpacity: 0.5
     }).addTo(map);
 
     var Hunstville = L.circle([34.7, -86.6], 15000, {
-    	color: 'red',
-    	fillColor: 'blue',
-    	fillOpacity: 0.5
+        color: 'red',
+        fillColor: 'blue',
+        fillOpacity: 0.5
     }).addTo(map);
 
 
-		L.control.mousePosition().addTo(map);
+    L.control.mousePosition().addTo(map);
 
-		// Initialize the FeatureGroup to store editable layers
-		var drawnItems = new L.FeatureGroup();
-		map.addLayer(drawnItems);
+    // Initialize the FeatureGroup to store editable layers
+    var drawnItems = new L.FeatureGroup();
+    map.addLayer(drawnItems);
 
-		// Initialize the draw control and pass it the FeatureGroup of editable layers
-		var drawControl = new L.Control.Draw({
-		    edit: {
-		        featureGroup: drawnItems
-		    },
-		    draw: {
-		    	polygon: false,
-		    	rectangle: false,
-		    	circle: false,
-		    	marker: false
-		    }
-		});
-		map.addControl(drawControl);
+    // Initialize the draw control and pass it the FeatureGroup of editable layers
+    var drawControl = new L.Control.Draw({
+        edit: {
+            featureGroup: drawnItems
+        },
+        draw: {
+        	polygon: false,
+        	rectangle: false,
+        	circle: false,
+        	marker: false
+        }
+    });
+    map.addControl(drawControl);
 
-		map.on('draw:created', function (e) {
-                        var type = e.layerType,
-                                layer = e.layer;
+    map.on('draw:created', function (e) {
+                    var type = e.layerType,
+                            layer = e.layer;
 
-                        if (type === 'polyline') {
-                                alert(layer.getLatLngs());
-                        }
+                    if (type === 'polyline') {
+                            //alert(layer.getLatLngs());
 
-                        drawnItems.addLayer(layer);
-                });
+                            //alert(layer.getLatLngs().length);
+                            addHurricaneCats(layer.getLatLngs().length);
+
+                    }
+
+                    drawnItems.addLayer(layer);
+            });
+}
+
+function addHurricaneCats(lengthIn) {
+    var newHtml = '';
+    for (i = 0;i < lengthIn; i++) {
+        newHtml += '<p>Position ' + (i + 1) + ':'
+                + '<div class="btn-group" data-toggle="buttons">'
+                + '<label class="btn btn-warning">'
+                + '<input type="radio" name="options" id="option1"> 1'
+                + '</label>'
+                + '<label class="btn btn-warning">'
+                + '<input type="radio" name="options" id="option2"> 2'
+                + '</label>'
+                + '<label class="btn btn-warning">'
+                + '<input type="radio" name="options" id="option3"> 3'
+                + '</label>'
+                + '<label class="btn btn-warning">'
+                + '<input type="radio" name="options" id="option1"> 4'
+                + '</label>'
+                + '<label class="btn btn-warning">'
+                + '<input type="radio" name="options" id="option1"> 5'
+                + '</label>'
+                + '</div>'
+                + '</p>';
+        
+    }
+    newHtml += '<button type="submit" class="btn btn-primary">Submit</button>';
+    $('#hurricane-categories').html(newHtml);
+
+}
