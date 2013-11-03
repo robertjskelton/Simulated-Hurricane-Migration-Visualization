@@ -27,6 +27,14 @@ function setupMap() {
     var NewOrleans = L.marker([30, -90]).addTo(map);
     var Houston = L.marker([29.8, -95.4]).addTo(map);
 
+    /*Houston.on('click', function() {
+        addHurricaneCats();
+    });*/
+
+    map.on('click', function(e) {
+
+        addHurricaneCats();
+    });
 
 
     // cities moved to
@@ -91,7 +99,7 @@ function setupMap() {
         fillOpacity: 0.5
     }).addTo(map);
 
-    map.on('click', function(e) {
+ /*   map.on('click', function(e) {
        map.remove(); 
 
        var latlng = new L.LatLng(31.4, -88.7);
@@ -112,7 +120,7 @@ function setupMap() {
        addAtlanta(10000);
        addBirmingham(10000);
        addAuburn(20000);
-   });
+   });*/
 
 // overwrite all previous cities with new city sizes
 function addHuntsville(sizeIn) {
@@ -228,9 +236,9 @@ L.control.mousePosition().addTo(map);
                     });
 }
 
-function addHurricaneCats(lengthIn) {
+function addHurricaneCats() {
     var newHtml = '';
-    for (i = 0;i < lengthIn; i++) {
+    /*for (i = 0;i < lengthIn; i++) {
         newHtml += '<p>Position ' + (i + 1) + ':'
         + '<div class="btn-group" data-toggle="buttons">'
         + '<label class="btn btn-warning">'
@@ -251,21 +259,32 @@ function addHurricaneCats(lengthIn) {
         + '</div>'
         + '</p>';
         
-    }
-    newHtml += '<p>Size of Hurricane<div class="btn-group" data-toggle="buttons">'
-    + '<label class="btn btn-warning">'
-    + '<input type="radio" name="options" id="option1"> Small'
-    + '</label>'
-    + '<label class="btn btn-warning">'
-    + '<input type="radio" name="options" id="option2"> Medium'
-    + '</label>'
-    + '<label class="btn btn-warning">'
-    + '<input type="radio" name="options" id="option3"> Large'
-    + '</label>'
+    }*/
+    newHtml += '<p>Hurricane Category:'
+        + '<div class="btn-group" data-toggle="buttons">'
+        + '<label class="btn btn-warning">'
+        + '<input type="radio" name="options" id="option1"> 1'
+        + '</label>'
+        + '<label class="btn btn-warning">'
+        + '<input type="radio" name="options" id="option2"> 2'
+        + '</label>'
+        + '<label class="btn btn-warning">'
+        + '<input type="radio" name="options" id="option3"> 3'
+        + '</label>'
+        + '<label class="btn btn-warning">'
+        + '<input type="radio" name="options" id="option1"> 4'
+        + '</label>'
+        + '<label class="btn btn-warning">'
+        + '<input type="radio" name="options" id="option1"> 5'
+        + '</label>'
+        + '</div>'
+        + '</p>';
+    newHtml += '<p>Radius of Hurricane:<div>'
+    + '<input type="text" id="rad">'
     + '</div>'
     + '</p>'
             + '<button type="submit" class="btn btn-primary">Submit</button> '  // submit button
             + ' <FORM><INPUT TYPE="button" class="btn btn-primary" onClick="window.location.reload()" VALUE="Refresh"></FORM>'; // refresh button
-            $('#hurricane-categories').html(newHtml);
+            $('#hurricane-categories').empty().html(newHtml);
 
         }
