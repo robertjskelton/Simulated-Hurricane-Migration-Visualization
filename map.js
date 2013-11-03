@@ -232,8 +232,10 @@ map.on('draw:created', function (e) {
 
 function addHurricaneCats(latlng_in) {
     var newHtml = '';
+    newHtml += '<p>Now choose what Category hurricane to simulate, and enter in a radius of the hurricane in km, then click submit.'
+            + '<br><br>Or click refresh to reset the map.<br><br></p>';
     newHtml += "<p>Latitude: " + latlng_in.lat + "<br />Longitude: " + latlng_in.lng + '</p>';
-    newHtml += '<p>Hurricane Category:'
+    newHtml += '<p><br>Hurricane Category:'
         + '<form>'
         + '<input type="radio" name="options" id="option" checked="" value="1"> 1&nbsp;'
         + '<input type="radio" name="options" id="option" value="2"> 2&nbsp;'
@@ -242,7 +244,7 @@ function addHurricaneCats(latlng_in) {
         + '<input type="radio" name="options" id="option" value="5"> 5&nbsp;'
         + '</form>'
         + '</p>';
-    newHtml += '<p>Radius of Hurricane in km:<div>'
+    newHtml += '<p><br>Radius of Hurricane in km:<div>'
     + '<input type="text" id="rad">'
     + '</div>'
     + '</p>'
