@@ -202,6 +202,7 @@ function addAuburn(sizeIn) {
 }).addTo(map);
 }
 
+
 L.control.mousePosition().addTo(map);
 
     // Initialize the FeatureGroup to store editable layers
