@@ -116,9 +116,9 @@ map.on('draw:created', function (e) {
                         layer = e.layer;
 
                 if (type === 'polyline') {
-                        alert(layer.getLatLngs());
+                        //alert(layer.getLatLngs());
 
-                        alert(layer.getLatLngs().length);
+                        //alert(layer.getLatLngs().length);
                         addHurricaneCats(layer.getLatLngs().length);
 
                 }
