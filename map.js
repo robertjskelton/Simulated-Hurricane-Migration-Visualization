@@ -113,28 +113,7 @@ function setupMap() {
         fillOpacity: 0.5
     }).addTo(map);
 
- /*   map.on('click', function(e) {
-       map.remove(); 
-
-       var latlng = new L.LatLng(31.4, -88.7);
-       map = L.map('map').setView(latlng, 6);
-
-       L.tileLayer('http://{s}.tile.cloudmade.com/42d89a292e284a7eb4f4e3beed8d1b25/997/256/{z}/{x}/{y}.png', {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-        maxZoom: 18
-    }).addTo(map);
-
-       addHuntsville(50000);
-       addChattanooga(70000);
-       addNashville(10000);
-       addLittleRock(10000);
-       addMontgomery(10000);
-       addSanAntonio(60000);
-       addDallas(10000);
-       addAtlanta(10000);
-       addBirmingham(10000);
-       addAuburn(20000);
-   });*/
+ 
 
 // overwrite all previous cities with new city sizes
 function addHuntsville(sizeIn) {
@@ -254,34 +233,37 @@ function addHurricaneCats(latlng_in) {
     var newHtml = '';
     newHtml += "<p>Latitude: " + latlng_in.lat + "<br />Longitude: " + latlng_in.lng + '</p>';
     newHtml += '<p>Hurricane Category:'
-        + '<div class="btn-group" data-toggle="buttons">'
-        + '<label class="btn btn-warning">'
-        + '<input type="radio" name="options" id="option1"> 1'
-        + '</label>'
-        + '<label class="btn btn-warning">'
-        + '<input type="radio" name="options" id="option2"> 2'
-        + '</label>'
-        + '<label class="btn btn-warning">'
-        + '<input type="radio" name="options" id="option3"> 3'
-        + '</label>'
-        + '<label class="btn btn-warning">'
-        + '<input type="radio" name="options" id="option1"> 4'
-        + '</label>'
-        + '<label class="btn btn-warning">'
-        + '<input type="radio" name="options" id="option1"> 5'
-        + '</label>'
-        + '</div>'
+        + '<form>'
+        + '<input type="radio" name="options" id="option" checked="" value="1"> 1&nbsp;'
+        + '<input type="radio" name="options" id="option" value="2"> 2&nbsp;'
+        + '<input type="radio" name="options" id="option" value="3"> 3&nbsp;'
+        + '<input type="radio" name="options" id="option" value="4"> 4&nbsp;'
+        + '<input type="radio" name="options" id="option" value="5"> 5&nbsp;'
+        + '</form>'
         + '</p>';
     newHtml += '<p>Radius of Hurricane:<div>'
     + '<input type="text" id="rad">'
     + '</div>'
     + '</p>'
-            + '<button type="submit" class="btn btn-primary" onClick="doWork()">Submit</button> '  // submit button
-            + ' <FORM><INPUT TYPE="button" class="btn btn-primary" onClick="window.location.reload()" VALUE="Refresh"></FORM>'; // refresh button
-            $('#hurricane-categories').empty().html(newHtml);
+    + '<button type="submit" class="btn btn-primary" onClick="doWork()">Submit</button> '  // submit button
+    + ' <FORM><INPUT TYPE="button" class="btn btn-primary" onClick="window.location.reload()" VALUE="Refresh"></FORM>'; // refresh button
+    $('#hurricane-categories').empty().html(newHtml);
+    
+
 
 }
 
 function doWork() {
+    // do initial checks
+
+    
+    alert($('input:radio[name=options]:checked').val());
+    if (isNaN($('#rad').val()) || $('#rad').val() == '') {
+        alert("Please enter an integer value for radius.");
+        return -1;
+    }
+
+
+
 
 }
