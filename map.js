@@ -33,7 +33,7 @@ function setupMap() {
 
     map.on('click', function(e) {
 
-        addHurricaneCats();
+        alert(e.latlng);
     });
 
 
@@ -238,28 +238,7 @@ L.control.mousePosition().addTo(map);
 
 function addHurricaneCats() {
     var newHtml = '';
-    /*for (i = 0;i < lengthIn; i++) {
-        newHtml += '<p>Position ' + (i + 1) + ':'
-        + '<div class="btn-group" data-toggle="buttons">'
-        + '<label class="btn btn-warning">'
-        + '<input type="radio" name="options" id="option1"> 1'
-        + '</label>'
-        + '<label class="btn btn-warning">'
-        + '<input type="radio" name="options" id="option2"> 2'
-        + '</label>'
-        + '<label class="btn btn-warning">'
-        + '<input type="radio" name="options" id="option3"> 3'
-        + '</label>'
-        + '<label class="btn btn-warning">'
-        + '<input type="radio" name="options" id="option1"> 4'
-        + '</label>'
-        + '<label class="btn btn-warning">'
-        + '<input type="radio" name="options" id="option1"> 5'
-        + '</label>'
-        + '</div>'
-        + '</p>';
-        
-    }*/
+    
     newHtml += '<p>Hurricane Category:'
         + '<div class="btn-group" data-toggle="buttons">'
         + '<label class="btn btn-warning">'
