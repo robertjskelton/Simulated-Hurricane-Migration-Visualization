@@ -6,7 +6,7 @@ var hurricane_icon = L.icon({
 });
 
 function setupMap() { 
-    var latlng = new L.LatLng(30.8, -88.7);
+    var latlng = new L.LatLng(31.4, -88.7);
     var map = L.map('map').setView(latlng, 6);
 
     L.tileLayer('http://{s}.tile.cloudmade.com/42d89a292e284a7eb4f4e3beed8d1b25/997/256/{z}/{x}/{y}.png', {
@@ -113,12 +113,6 @@ function setupMap() {
         fillOpacity: 0.5
     }).addTo(map);
 
-  var Charlotte = L.circle([35.2, -80.8], 15000, {
-        color: 'blue',
-        fillColor: 'black',
-        fillOpacity: 0.5
-    }).addTo(map);
-
  
 
 // overwrite all previous cities with new city sizes
@@ -203,36 +197,37 @@ function addAuburn(sizeIn) {
 
 L.control.mousePosition().addTo(map);
 
-    // Initialize the FeatureGroup to store editable layers
-    var drawnItems = new L.FeatureGroup();
-    map.addLayer(drawnItems);
+/*
+// Initialize the FeatureGroup to store editable layers
+var drawnItems = new L.FeatureGroup();
+map.addLayer(drawnItems);
 
-    // Initialize the draw control and pass it the FeatureGroup of editable layers
-    var drawControl = new L.Control.Draw({
-        edit: {
-            featureGroup: drawnItems
-        },
-        draw: {
-        	polygon: false,
-        	rectangle: false,
-        	circle: false,
-        	marker: false
-        }
-    });
-    map.addControl(drawControl);
+// Initialize the draw control and pass it the FeatureGroup of editable layers
+var drawControl = new L.Control.Draw({
+    edit: {
+        featureGroup: drawnItems
+    },
+    draw: {
+    	polygon: false,
+    	rectangle: false,
+    	circle: false,
+    	marker: false
+    }
+});
+map.addControl(drawControl);
 
-    map.on('draw:created', function (e) {
-        var type = e.layerType,
-        layer = e.layer;
+map.on('draw:created', function (e) {
+    var type = e.layerType,
+    layer = e.layer;
 
-        if (type === 'polyline') {
-                            //alert(layer.getLatLngs());
+    if (type === 'polyline') {
+                        //alert(layer.getLatLngs());
 
-                            //alert(layer.getLatLngs().length);
-                            addHurricaneCats(layer.getLatLngs().length);
-                        }
-                        drawnItems.addLayer(layer);
-                    });
+                        //alert(layer.getLatLngs().length);
+                        addHurricaneCats(layer.getLatLngs().length);
+                    }
+                    drawnItems.addLayer(layer);
+                });*/
 }
 
 function addHurricaneCats(latlng_in) {
@@ -247,12 +242,12 @@ function addHurricaneCats(latlng_in) {
         + '<input type="radio" name="options" id="option" value="5"> 5&nbsp;'
         + '</form>'
         + '</p>';
-    newHtml += '<p>Radius of Hurricane:<div>'
+    newHtml += '<p>Radius of Hurricane in km:<div>'
     + '<input type="text" id="rad">'
     + '</div>'
     + '</p>'
     + '<button type="submit" class="btn btn-primary" onClick="doWork()">Submit</button> '  // submit button
-    + ' <FORM><INPUT TYPE="button" class="btn btn-primary" onClick="window.location.reload()" VALUE="Refresh"></FORM>'; // refresh button
+    + '<button TYPE="button" class="btn btn-primary" onClick="window.location.reload()">Reset</button>'; // refresh button
     $('#hurricane-categories').empty().html(newHtml);
     
 
@@ -261,9 +256,7 @@ function addHurricaneCats(latlng_in) {
 
 function doWork() {
     // do initial checks
-
-    
-    alert($('input:radio[name=options]:checked').val());
+    //alert($('input:radio[name=options]:checked').val());
     if (isNaN($('#rad').val()) || $('#rad').val() == '') {
         alert("Please enter an integer value for radius.");
         return -1;
