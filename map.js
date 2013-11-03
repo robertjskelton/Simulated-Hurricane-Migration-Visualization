@@ -1,7 +1,7 @@
 function setupMap() { 
     var latlng = new L.LatLng(30.3, -87.4808);
     var map = L.map('map').setView(latlng, 6);
-    			
+
     L.tileLayer('http://{s}.tile.cloudmade.com/42d89a292e284a7eb4f4e3beed8d1b25/997/256/{z}/{x}/{y}.png', {
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
         maxZoom: 18
@@ -91,8 +91,112 @@ function setupMap() {
         fillOpacity: 0.5
     }).addTo(map);
 
+    map.on('click', function(e) {
+     map.remove(); 
+   //clearLayers();
+   //Hunstville.removeFrom(map);
 
-    L.control.mousePosition().addTo(map);
+   var latlng = new L.LatLng(30.3, -87.4808);
+   map = L.map('map').setView(latlng, 6);
+
+   L.tileLayer('http://{s}.tile.cloudmade.com/42d89a292e284a7eb4f4e3beed8d1b25/997/256/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+    maxZoom: 18
+}).addTo(map);
+
+   addHuntsville(50000);
+   addChattanooga(70000);
+   addNashville(10000);
+   addLittleRock(10000);
+   addMontgomery(10000);
+   addSanAntonio(60000);
+   addDallas(10000);
+   addAtlanta(10000);
+   addBirmingham(10000);
+   addAuburn(20000);
+});
+
+// overwrite all previous cities with new city sizes
+    function addHuntsville(sizeIn) {
+        var Hunstville = L.circle([34.7, -86.6], sizeIn, {
+            color: 'red',
+            fillColor: 'blue',
+            fillOpacity: 0.5
+        }).addTo(map);
+    }
+
+    function addChattanooga(sizeIn) {
+      var Chattanooga = L.circle([35, -85.3], sizeIn, {
+        color: 'gold',
+        fillColor: 'navy',
+        fillOpacity: 0.5
+    }).addTo(map);  
+  }
+
+  function addNashville(sizeIn) {
+     var Nashville = L.circle([36.2, -86.8], sizeIn, {
+        color: 'black',
+        fillColor: 'gold',
+        fillOpacity: 0.5
+    }).addTo(map);
+ }
+
+ function addLittleRock(sizeIn) {
+    var LittleRock = L.circle([34.7, -92.3], sizeIn, {
+        color: 'red',
+        fillColor: 'white',
+        fillOpacity: 0.5
+    }).addTo(map);
+}
+
+function addMontgomery(sizeIn) {
+    var Montgomery = L.circle([32.4, -86.3], sizeIn, {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5
+    }).addTo(map);
+}
+
+function addSanAntonio(sizeIn) {
+ var SanAntonio = L.circle([29.4, -98.5], sizeIn, {
+    color: 'black',
+    fillColor: 'white',
+    fillOpacity: 0.5
+}).addTo(map);
+}
+
+function addDallas(sizeIn) {
+    var Dallas = L.circle([32.8, -96.8], sizeIn, {
+        color: 'white',
+        fillColor: 'blue',
+        fillOpacity: 0.5
+    }).addTo(map);
+}
+
+function addAtlanta(sizeIn) {
+  var Atlanta = L.circle([33.8, -84.4], sizeIn, {
+    color: 'red',
+    fillColor: 'black',
+    fillOpacity: 0.5
+}).addTo(map);
+}
+
+function addBirmingham(sizeIn) {
+    var Birmingham = L.circle([33.5, -86.8], sizeIn, {
+        color: 'green',
+        fillColor: 'gold',
+        fillOpacity: 0.5
+    }).addTo(map);
+}
+function addAuburn(sizeIn) {
+  var Auburn = L.circle([32.6, -85.5], sizeIn, {
+    color: 'orange',
+    fillColor: 'blue',
+    fillOpacity: 0.5
+}).addTo(map);
+}
+
+L.control.mousePosition().addTo(map);
 
     // Initialize the FeatureGroup to store editable layers
     var drawnItems = new L.FeatureGroup();
@@ -113,43 +217,55 @@ function setupMap() {
     map.addControl(drawControl);
 
     map.on('draw:created', function (e) {
-                    var type = e.layerType,
-                            layer = e.layer;
+        var type = e.layerType,
+        layer = e.layer;
 
-                    if (type === 'polyline') {
+        if (type === 'polyline') {
                             //alert(layer.getLatLngs());
 
                             //alert(layer.getLatLngs().length);
                             addHurricaneCats(layer.getLatLngs().length);
 
-                    }
+                        }
 
-                    drawnItems.addLayer(layer);
-            });
+                        drawnItems.addLayer(layer);
+                    });
 }
+
+
+
+/*function changeSize(city, size) {
+    city = L.circle([34.7, -86.6], size, {
+        color: 'red',
+        fillColor: 'blue',
+        fillOpacity: 0.5
+    }).addTo(map);
+}
+
+changeSize(Hunstville, 10000);*/
 
 function addHurricaneCats(lengthIn) {
     var newHtml = '';
     for (i = 0;i < lengthIn; i++) {
         newHtml += '<p>Position ' + (i + 1) + ':'
-                + '<div class="btn-group" data-toggle="buttons">'
-                + '<label class="btn btn-warning">'
-                + '<input type="radio" name="options" id="option1"> 1'
-                + '</label>'
-                + '<label class="btn btn-warning">'
-                + '<input type="radio" name="options" id="option2"> 2'
-                + '</label>'
-                + '<label class="btn btn-warning">'
-                + '<input type="radio" name="options" id="option3"> 3'
-                + '</label>'
-                + '<label class="btn btn-warning">'
-                + '<input type="radio" name="options" id="option1"> 4'
-                + '</label>'
-                + '<label class="btn btn-warning">'
-                + '<input type="radio" name="options" id="option1"> 5'
-                + '</label>'
-                + '</div>'
-                + '</p>';
+        + '<div class="btn-group" data-toggle="buttons">'
+        + '<label class="btn btn-warning">'
+        + '<input type="radio" name="options" id="option1"> 1'
+        + '</label>'
+        + '<label class="btn btn-warning">'
+        + '<input type="radio" name="options" id="option2"> 2'
+        + '</label>'
+        + '<label class="btn btn-warning">'
+        + '<input type="radio" name="options" id="option3"> 3'
+        + '</label>'
+        + '<label class="btn btn-warning">'
+        + '<input type="radio" name="options" id="option1"> 4'
+        + '</label>'
+        + '<label class="btn btn-warning">'
+        + '<input type="radio" name="options" id="option1"> 5'
+        + '</label>'
+        + '</div>'
+        + '</p>';
         
     }
     newHtml += '<button type="submit" class="btn btn-primary">Submit</button>';
