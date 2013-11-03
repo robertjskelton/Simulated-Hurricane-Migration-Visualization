@@ -33,7 +33,9 @@ function setupMap() {
 
     map.on('click', function(e) {
 
-        alert(e.latlng);
+        //alert(e.latlng.lat);
+        addHurricaneCats(e.latlng);
+
     });
 
 
@@ -236,9 +238,9 @@ L.control.mousePosition().addTo(map);
                     });
 }
 
-function addHurricaneCats() {
+function addHurricaneCats(latlng_in) {
     var newHtml = '';
-    
+    newHtml += "<p>Latitude: " + latlng_in.lat + "<br />Longitude: " + latlng_in.lng + '</p>';
     newHtml += '<p>Hurricane Category:'
         + '<div class="btn-group" data-toggle="buttons">'
         + '<label class="btn btn-warning">'
@@ -262,8 +264,12 @@ function addHurricaneCats() {
     + '<input type="text" id="rad">'
     + '</div>'
     + '</p>'
-            + '<button type="submit" class="btn btn-primary">Submit</button> '  // submit button
+            + '<button type="submit" class="btn btn-primary" onClick="doWork()">Submit</button> '  // submit button
             + ' <FORM><INPUT TYPE="button" class="btn btn-primary" onClick="window.location.reload()" VALUE="Refresh"></FORM>'; // refresh button
             $('#hurricane-categories').empty().html(newHtml);
 
-        }
+}
+
+function doWork() {
+
+}
