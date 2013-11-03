@@ -34,9 +34,7 @@ function setupMap() {
     var NewOrleans = L.marker([30, -90]).addTo(map);
     var Houston = L.marker([29.8, -95.4]).addTo(map);
 
-    /*Houston.on('click', function() {
-        addHurricaneCats();
-    });*/
+
 
     map.on('click', function(e) {
 
@@ -49,6 +47,7 @@ function setupMap() {
         addHurricaneCats(e.latlng);
 
     });
+
 
 
     // cities moved to
@@ -113,7 +112,11 @@ function setupMap() {
         fillOpacity: 0.5
     }).addTo(map);
 
- 
+    var Hunstville = L.circle([35.2, -80.8], 15000, {
+        color: 'blue',
+        fillColor: 'black',
+        fillOpacity: 0.5
+    }).addTo(map);
 
 // overwrite all previous cities with new city sizes
 function addHuntsville(sizeIn) {
@@ -195,6 +198,61 @@ function addAuburn(sizeIn) {
 }).addTo(map);
 }
 
+function addCharlotte(sizeIn) {
+   var Nashville = L.circle([35.2, -80.8], sizeIn, {
+    color: 'blue',
+    fillColor: 'black',
+    fillOpacity: 0.5
+}).addTo(map);
+}
+
+    Houston.on('click', function(e) {
+       //get rid of old map
+       map.remove();
+       //$('#map').html('');
+
+        // add the same map, new
+        var latlng = new L.LatLng(31.4, -88.7);
+        var map2 = L.map('map2').setView(latlng, 6);
+
+        L.tileLayer('http://{s}.tile.cloudmade.com/42d89a292e284a7eb4f4e3beed8d1b25/997/256/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+            maxZoom: 18
+        }).addTo(map2);
+
+        addHuntsville(10000);
+        addChattanooga(10000);
+        addNashville(12000);
+        addLittleRock(40000);
+        addMontgomery(18000);
+        addSanAntonio(28000);
+        addDallas(6000);
+        addAtlanta(10000);
+        addBirmingham(12000);
+        addAuburn(12000);
+        addCharlotte(25000);
+
+        // add old cities
+        var Mobile = L.marker([30.7, -88]).addTo(map);
+        var Orlando = L.marker([28.4, -81.3]).addTo(map);
+        var Miami = L.marker([25.8, -80.2]).addTo(map);
+        var Tampa = L.marker([27.9, -82.5]).addTo(map);
+        var KeyWest = L.marker([24.5, -81.8]).addTo(map);
+        var Biloxi = L.marker([30.4, -88.9]).addTo(map);
+        var Savannah = L.marker([32, -81]).addTo(map);
+        var Charleston = L.marker([32.8, -79.9]).addTo(map);
+        var MyrtleBeach = L.marker([33.7, -78.9]).addTo(map);
+        var PanamaCityBeach = L.marker([30.2, -85.8]).addTo(map);
+        var Jacksonville = L.marker([30.3, -81.7]).addTo(map);
+        var BatonRouge = L.marker([30.5, -91.1]).addTo(map);
+        var CorpusChristi = L.marker([27.7, -97.4]).addTo(map);
+        var Lafayette = L.marker([30.2, -92]).addTo(map);
+        var Pensacola = L.marker([30.4, -87.2]).addTo(map);
+        var Tallahassee = L.marker([30.5, -84.3]).addTo(map);
+        var NewOrleans = L.marker([30, -90]).addTo(map);
+        var Houston = L.marker([29.8, -95.4]).addTo(map);
+    });
+
 L.control.mousePosition().addTo(map);
 
 /*
@@ -233,17 +291,17 @@ map.on('draw:created', function (e) {
 function addHurricaneCats(latlng_in) {
     var newHtml = '';
     newHtml += '<p>Now choose what Category hurricane to simulate, and enter in a radius of the hurricane in km, then click submit.'
-            + '<br><br>Or click refresh to reset the map.<br><br></p>';
+    + '<br><br>Or click refresh to reset the map.<br><br></p>';
     newHtml += "<p>Latitude: " + latlng_in.lat + "<br />Longitude: " + latlng_in.lng + '</p>';
     newHtml += '<p><br>Hurricane Category:'
-        + '<form>'
-        + '<input type="radio" name="options" id="option" checked="" value="1"> 1&nbsp;'
-        + '<input type="radio" name="options" id="option" value="2"> 2&nbsp;'
-        + '<input type="radio" name="options" id="option" value="3"> 3&nbsp;'
-        + '<input type="radio" name="options" id="option" value="4"> 4&nbsp;'
-        + '<input type="radio" name="options" id="option" value="5"> 5&nbsp;'
-        + '</form>'
-        + '</p>';
+    + '<form>'
+    + '<input type="radio" name="options" id="option" checked="" value="1"> 1&nbsp;'
+    + '<input type="radio" name="options" id="option" value="2"> 2&nbsp;'
+    + '<input type="radio" name="options" id="option" value="3"> 3&nbsp;'
+    + '<input type="radio" name="options" id="option" value="4"> 4&nbsp;'
+    + '<input type="radio" name="options" id="option" value="5"> 5&nbsp;'
+    + '</form>'
+    + '</p>';
     newHtml += '<p><br>Radius of Hurricane in km:<div>'
     + '<input type="text" id="rad">'
     + '</div>'
@@ -259,12 +317,11 @@ function addHurricaneCats(latlng_in) {
 function doWork() {
     // do initial checks
     //alert($('input:radio[name=options]:checked').val());
+    
     if (isNaN($('#rad').val()) || $('#rad').val() == '') {
         alert("Please enter an integer value for radius.");
         return -1;
     }
-
-
-
-
+    window.location.href = '/map2.html';
 }
+
