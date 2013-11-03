@@ -6,7 +6,7 @@ var hurricane_icon = L.icon({
 });
 
 function setupMap() { 
-    var latlng = new L.LatLng(31.4, -88.7);
+    var latlng = new L.LatLng(30.8, -88.7);
     var map = L.map('map').setView(latlng, 6);
 
     L.tileLayer('http://{s}.tile.cloudmade.com/42d89a292e284a7eb4f4e3beed8d1b25/997/256/{z}/{x}/{y}.png', {
@@ -110,6 +110,12 @@ function setupMap() {
     var Hunstville = L.circle([34.7, -86.6], 15000, {
         color: 'red',
         fillColor: 'blue',
+        fillOpacity: 0.5
+    }).addTo(map);
+
+  var Charlotte = L.circle([35.2, -80.8], 15000, {
+        color: 'blue',
+        fillColor: 'black',
         fillOpacity: 0.5
     }).addTo(map);
 
